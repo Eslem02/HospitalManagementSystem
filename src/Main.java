@@ -9,8 +9,10 @@ public class Main {
         list.addPatient(new Patient(4,"Zeynep",4,20));
         list.addPatient(new Patient(5,"Fatma",8,38));
 
+
+
         list.removePatient(3);
-        System.out.println(list.findPatient(2));
+        System.out.println(list.findPatient(5));
         list.printList();
 
     }

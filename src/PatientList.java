@@ -14,8 +14,8 @@ public class PatientList {
             tail=p1;
             System.out.println("Patient registration list created");
         }else{
-            p1.next=head;
-            head=p1;
+            tail.next=p1;
+            tail=p1;
             System.out.println(p1.id+" Patient id enregistered.");
         }
     }
@@ -48,16 +48,15 @@ public class PatientList {
             }
         }
     }
-     public Patient findPatient(int id){
+     public boolean findPatient(int id){
         Patient temp=head;
         while(temp!=null){
-            if(temp.id==id){
-                return temp;
-            }
+            if(temp.id==id)
+                return true;
             temp=temp.next;
         }
-        return null;
-    }
+        return false;
+     }
 
 
     void printList(){
