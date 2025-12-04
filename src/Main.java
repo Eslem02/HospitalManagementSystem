@@ -8,7 +8,7 @@ public class Main {
         list.addPatient(new Patient(3,"İrem",2,52));
         list.addPatient(new Patient(4,"Zeynep",4,20));
         list.addPatient(new Patient(5,"Fatma",8,38));
-
+// vc
 
 
         list.removePatient(3);

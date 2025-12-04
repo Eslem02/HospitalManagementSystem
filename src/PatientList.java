@@ -24,7 +24,7 @@ public class PatientList {
             System.out.println("List is empty, no patient to delete ");
         } else {
             if (id == head.id && head.next == null) {
-                head = null;
+                head = null;//vb
                 tail = null;
             } else if (id == head.id && head.next != null) {
                 head = head.next;
