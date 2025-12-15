@@ -65,6 +65,5 @@ public class TreatmentQueue {
         return cnt==size;
     }
 
-
 }
 
