@@ -5,16 +5,16 @@ public class Main {
         TreatmentQueue queue=new TreatmentQueue();
         DischargeStack stack= new DischargeStack();
 
-        //list.addPatient(new Patient(1,"Eslem",6,40));
-        //list.addPatient(new Patient(2,"Mustafa",3,25));
-        //list.addPatient(new Patient(3,"İrem",2,52));
-        //list.addPatient(new Patient(4,"Zeynep",4,20));
-        //list.addPatient(new Patient(5,"Fatma",8,38));
+        list.addPatient(new Patient(1,"Eslem",6,40));
+        list.addPatient(new Patient(2,"Mustafa",3,25));
+        list.addPatient(new Patient(3,"İrem",2,52));
+        list.addPatient(new Patient(4,"Zeynep",4,20));
+        list.addPatient(new Patient(5,"Fatma",8,38));
 
 
-        //list.removePatient(3);
-        //System.out.println(list.findPatient(5));
-        //list.printList();
+        list.removePatient(3);
+        System.out.println(list.findPatient(5));
+        list.printList();
 
         System.out.println("----------------------------------------------------------------------");
 
@@ -35,16 +35,16 @@ public class Main {
 
         //System.out.println("Queue size: "+queue.realSize());
 
-        stack.push(new DischargeRecord(101));
-        stack.push(new DischargeRecord(102));
-        stack.push(new DischargeRecord(103));
-        stack.push(new DischargeRecord(104));
-        stack.push(new DischargeRecord(105));
+       // stack.push(new DischargeRecord(101));
+        // stack.push(new DischargeRecord(102));
+        // stack.push(new DischargeRecord(103));
+        // stack.push(new DischargeRecord(104));
+        //stack.push(new DischargeRecord(105));
 
-        stack.pop();
-        stack.pop();
+        //stack.pop();
+        //stack.pop();
 
-        stack.printStack();
+        //stack.printStack();
 
 
 }
