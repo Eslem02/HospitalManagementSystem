@@ -61,9 +61,6 @@ public class TreatmentQueue {
         return cnt==0;
     }
 
-    boolean isFull(){
-        return cnt==size;
-    }
 
 }
 
