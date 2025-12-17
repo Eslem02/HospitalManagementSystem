@@ -23,7 +23,7 @@ public class DischargeStack {
         }else{
             System.out.println(top.patientId+" removed");
             top=top.next;
-            cnt--;
+            cnt--;  //
         }
     }
 
