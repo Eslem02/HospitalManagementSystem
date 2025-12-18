@@ -1,47 +1,47 @@
 public class DischargeStack {
-    int cnt;
-    DischargeRecord top;
+    int cnt;        //Stores the number of elements in the stcak
+    DischargeRecord top;        //Points to the top element of the stack
 
-    public DischargeStack(){
-        cnt=0;
-        top=null;
+    public DischargeStack(){        //Constructor:initializes an empty stack
+        cnt=0;      //Stack is empty at the beginning
+        top=null;       //No top element
     }
-    void push(DischargeRecord patient){
-           if(isEmpty()){
+    void push(DischargeRecord patient){     //Adds a new discharge record to the top of the stack
+           if(isEmpty()){       //If the stack is empty,the new element becomes the top
                top=patient;
                System.out.println(top.patientId+ " First patient added to stack");
-           }else{
+           }else{       //If the stack is not empty,place the new element on top
                patient.next=top;
                top=patient;
                System.out.println(top.patientId+" Patient added");
            }
-           cnt++;
+           cnt++;       //Increase the number of elements
     }
-    void pop(){
-        if(isEmpty()){
+    void pop(){     //Removes the top element from the stack
+        if(isEmpty()){      //If the stack is empty,there is nothing to remove
             System.out.println("Stack is empty.");
-        }else{
+        }else{      //Remove the top element(LIFO principle)
             System.out.println(top.patientId+" removed");
             top=top.next;
-            cnt--;  //
+            cnt--;      //Decrease the number of elements
         }
     }
 
-    void peek(){
+    void peek(){        //Display the top element without removing it
         if(isEmpty()){
             System.out.println("Stack is empty");
         }else{
             System.out.println("Top element: "+top.patientId);
         }
     }
-    void printStack(){
+    void printStack(){      //Prints all elements in the stack from top to bottom
         if(isEmpty()){
             System.out.println("There are no patients to show");
         }else{
             DischargeRecord temp=top;
             System.out.println("Patients on the stack \n");
 
-            while(temp!=null){
+            while(temp!=null){      //Traverse the stack and print each patient ID
                 System.out.println(temp.patientId);
                 temp=temp.next;
             }
@@ -51,5 +51,5 @@ public class DischargeStack {
 
     boolean isEmpty(){
         return cnt==0;
-    }
+    }       //Checks whether the stack is empty
 }

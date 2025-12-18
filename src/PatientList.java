@@ -11,7 +11,7 @@ public class PatientList {
             p1.next=null;
             head=p1;
             tail=p1;
-            System.out.println("Patient registration list created");
+            System.out.println("Patient registration list created "+","+ p1.id + " Patient id enregistered.");
         }else{     //Add patient to the end using tail reference
             tail.next=p1;
             tail=p1;
@@ -34,7 +34,7 @@ public class PatientList {
                 while (temp.next != null) {
                     if (id == temp.id) {   //Remove current node
                         temp2.next = temp.next;
-                        System.out.println(id + "The patient with the ID was deleted");
+                        System.out.println(id +" The patient with the ID was deleted");
                        return;
                     }
                     temp2 = temp;

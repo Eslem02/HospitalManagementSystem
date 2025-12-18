@@ -1,55 +1,55 @@
 public class TreatmentQueue {
-    TreatmentRequest front;
-    TreatmentRequest rear;
-    int cnt;
-    int size;
+    TreatmentRequest front;     // Points to the first element in the queue (first patient)
+    TreatmentRequest rear;      // Points to the last element in the queue (last patient)
+    int cnt;        //Stores the current number of elements in the queue
 
-    public TreatmentQueue(){
-        cnt=0;
-        front=null;
-        rear=null;
+
+    public TreatmentQueue(){        //Constructor:initializes an empty queue
+        cnt=0;      //Queue is empty at the beginning
+        front=null;     //No first element
+        rear=null;      //No last element
     }
     void enQueue(TreatmentRequest request ){
-        if(isEmpty()){
+        if(isEmpty()){      //If the queue is empty,the new element becomes both front and rear
             front=rear=request;
             System.out.println("The queue was created and the first patient arrived. ");
-        }else{
+        }else{     //If the queue is nıt empty,add the new element to the end
             rear.next=request;
             rear=request;
             System.out.println(rear.patientId+" got in line.");
         }
-        cnt++;
+        cnt++;   //Increase the number of elements
 
     }
 
 
-    void deQueue(){
-        if(isEmpty()){
+    void deQueue(){     //Removes the first treatment request from the queue
+        if(isEmpty()){      //If the is emty,there is nothing to remove
             System.out.println("There is no one to take out of the queue");
-        }else{
+        }else{      //Remove the front element(FIFO principle)
             System.out.println(front.patientId+ " Treatment request was met");
             front=front.next;
-            cnt--;
+            cnt--;  //Decrease the number of elements
         }
     }
-    int realSize(){
-        int cnt=0;
+    int realSize(){     //Calculates the actual number of elements by traversing the queue
+        int cnt=0;      //Local counter
         TreatmentRequest temp=front;
 
-        while(temp!=null){
+        while(temp!=null){      //Traverse the queue and count elements
             cnt++;
             temp=temp.next;
         }
         return cnt;
     }
 
-    void printQueue(){
+    void printQueue(){      //Prints all elements in the queue from front to rear
         if(isEmpty()){
             System.out.println("There are no patients waiting.");
         }else{
             TreatmentRequest temp=front;
             System.out.print("front->");
-            while (temp!=null){
+            while (temp!=null){     //Print each patient ID in order
                 System.out.print(temp.patientId+" ->");
                 temp=temp.next;
             }
@@ -59,7 +59,7 @@ public class TreatmentQueue {
 
     boolean isEmpty(){
         return cnt==0;
-    }
+    }       //Checks whether the queue is empty
 
 
 }

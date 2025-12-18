@@ -35,6 +35,10 @@ public class Main {
 
         //System.out.println("Queue size: "+queue.realSize());
 
+        System.out.println("----------------------------------------------------------------------");
+
+
+
        // stack.push(new DischargeRecord(101));
         // stack.push(new DischargeRecord(102));
         // stack.push(new DischargeRecord(103));
