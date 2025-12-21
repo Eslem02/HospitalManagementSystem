@@ -22,8 +22,7 @@ public class TreatmentQueue {
 
     }
 
-
-    void deQueue(){     //Removes the first treatment request from the queue
+    Patient deQueue(){     //Removes the first treatment request from the queue
         if(isEmpty()){      //If the is emty,there is nothing to remove
             System.out.println("There is no one to take out of the queue");
         }else{      //Remove the front element(FIFO principle)
@@ -31,6 +30,7 @@ public class TreatmentQueue {
             front=front.next;
             cnt--;  //Decrease the number of elements
         }
+        return null;
     }
     int realSize(){     //Calculates the actual number of elements by traversing the queue
         int cnt=0;      //Local counter
