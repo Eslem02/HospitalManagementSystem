@@ -35,11 +35,10 @@ public class PatientList {
                     if (id == temp.id) {   //Remove current node
                         temp2.next = temp.next;
                         System.out.println(id +" The patient with the ID was deleted");
-                       return;
                     }
                     temp2 = temp;
                     temp = temp.next;
-                }//
+                }
                 if (id == temp.id) {
                     temp2.next = null;
                     tail = temp2;

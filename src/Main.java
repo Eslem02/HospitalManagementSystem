@@ -6,7 +6,7 @@ public class Main {
         DischargeStack stack= new DischargeStack();
 
         list.addPatient(new Patient(1,"Eslem",6,40));
-        list.addPatient(new Patient(2,"Mustafa",3,25));
+        list.addPatient(new Patient(2,"Tuğba",3,25));
         list.addPatient(new Patient(3,"İrem",2,52));
         list.addPatient(new Patient(4,"Zeynep",4,20));
         list.addPatient(new Patient(5,"Fatma",8,38));
