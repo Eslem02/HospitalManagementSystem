@@ -39,7 +39,7 @@ public class PatientList {
                     }
                     temp2 = temp;
                     temp = temp.next;
-                }
+                }//
                 if (id == temp.id) {
                     temp2.next = null;
                     tail = temp2;

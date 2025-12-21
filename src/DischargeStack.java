@@ -29,7 +29,7 @@ public class DischargeStack {
 
     void peek(){        //Display the top element without removing it
         if(isEmpty()){
-            System.out.println("Stack is empty");//
+            System.out.println("Stack is empty");
         }else{
             System.out.println("Top element: "+top.patientId);
         }
