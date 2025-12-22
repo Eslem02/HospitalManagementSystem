@@ -4,7 +4,7 @@ public class TreatmentRequest {
     TreatmentRequest next;
 
 
-    public TreatmentRequest(int patientId){
+    public TreatmentRequest(int patientId, String name){
         this.patientId=patientId;
         this.arrivalTime=System.currentTimeMillis();
         this.next=null;
