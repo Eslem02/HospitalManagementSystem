@@ -47,7 +47,7 @@ public class HospitalSystem {
 
         if (p != null) {
             System.out.println("Adding patient to treatment queue...");
-            treatmentQueue.enQueue(p);
+            treatmentQueue.enQueue(p);//
             System.out.println("Patient " + p.id + " added to queue.");
         }
         System.out.println("----------------------------------------");
@@ -59,7 +59,7 @@ public class HospitalSystem {
         Patient p =treatmentQueue.deQueue();
         if(p!=null){
             System.out.println("Adding to discharge stack...");
-            dischargeStack.push(p);
+            dischargeStack.push(p);//
 
             System.out.println("Removing from patient list...");
             patientList.removePatient(p.id);
