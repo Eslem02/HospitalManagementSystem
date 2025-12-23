@@ -56,8 +56,11 @@ public class HospitalSystem {
         System.out.println("----Discharge Patient----");
 
         System.out.println("Removing from treatment queue...");     //Remove a patient from the treatment queue
-        Patient p =treatmentQueue.deQueue();        //Should return a Patient object
-        if(p!=null){
+        TreatmentRequest request =treatmentQueue.deQueue();        //Should return a Patient object
+        if(request!=null){
+
+            Patient p=patientMap.get(request.patientId);
+            if(p!=null){
             System.out.println("Adding to discharge stack...");     //Add to discharge stack
             dischargeStack.push(new DischargeRecord(p.id));//
 
@@ -67,11 +70,15 @@ public class HospitalSystem {
             System.out.println("Removing from HashMap...");     //Remove from HashMap as well
             patientMap.remove(p.id);
             System.out.println("Patient discharged: ID "+p.id);
+        }else {
+                System.out.println("No patient in queue to discharge! ");
+            }
         }else{
-            System.out.println("No patient in queue to discharge! ");
-        }
+                System.out.println("No patient in queue to discharge!");
+            }
         System.out.println("---------------------------------------");
     }
+
     public void printAllPatients(){     //Displays all patients currently registered in the system
         System.out.println("----All Patients in System----");
         patientList.printList();
