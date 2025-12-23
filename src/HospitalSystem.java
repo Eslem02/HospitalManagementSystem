@@ -88,3 +88,4 @@ public class HospitalSystem {
         System.out.println("------------------------------");
     }
 }
+// SİLLLLLSİSLLLSLSL
