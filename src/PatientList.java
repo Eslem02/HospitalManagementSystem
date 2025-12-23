@@ -78,6 +78,39 @@ public class PatientList {
             }
         }
     }
+    public void sortBySeverity(){       //Sorting by severity(BUBBLE SORT)
+        if(head==null || head.next==null){
+            return;     //0 or 1 element->already sorted
+        }
+        boolean swapped;
+        do{
+            swapped =false;
+            Patient temp=head;
+
+            while(temp.next!=null){
+                if(temp.severity<temp.next.severity){       //Higher severity should come first
+                    int idSwap=temp.id;
+                    String nameSwap= temp.name;
+                    int severitySwap= temp.severity;
+                    int ageSwap=temp.age;
+
+                    temp.id=temp.next.id;       //Swap data instead of swapping nodes
+                    temp.name=temp.next.name;
+                    temp.severity=temp.next.severity;
+                    temp.age=temp.next.age;
+
+                    temp.next.id=idSwap;
+                    temp.next.name=nameSwap;
+                    temp.next.severity=severitySwap;
+                    temp.next.age=ageSwap;
+
+                    swapped=true;
+                }
+                temp=temp.next;
+            }
+        }while(swapped);
+        System.out.println("Patients sorted by severity (highest to lowest).");
+    }
 
 
 }

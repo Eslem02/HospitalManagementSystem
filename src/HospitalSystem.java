@@ -1,12 +1,9 @@
 import java.util.HashMap;
 public class HospitalSystem {
-    PatientList patientList;        //Linked list that stores all registered patients
-
-    TreatmentQueue treatmentQueue;      //Queue that manages treatment order
-
-    DischargeStack dischargeStack;      //Stack that stores discharged patients
-
-    HashMap<Integer, Patient> patientMap;       //HashMap used for fast patient lookup by ID
+    public PatientList patientList;        //Linked list that stores all registered patients
+    public TreatmentQueue treatmentQueue;      //Queue that manages treatment order
+    public DischargeStack dischargeStack;      //Stack that stores discharged patients
+    public HashMap<Integer, Patient> patientMap;       //HashMap used for fast patient lookup by ID
 
     public HospitalSystem() {       //Constructor:initializes all system components
         patientList = new PatientList();
@@ -92,6 +89,11 @@ public class HospitalSystem {
     public void printDischargePatients(){       //Displays all discharged patients stored in the stack
         System.out.println("----Discharged Patients----");
         dischargeStack.printStack();
+        System.out.println("------------------------------");
+    }
+    public void sortPatientBySeverity(){
+        System.out.println("-----Sorting Patients----");
+        patientList.sortBySeverity();
         System.out.println("------------------------------");
     }
 }

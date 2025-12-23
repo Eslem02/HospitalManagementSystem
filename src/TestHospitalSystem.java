@@ -25,6 +25,10 @@ public class TestHospitalSystem {
 
         System.out.println("\n=====Print All Patients After Discharge====");
         hs.printAllPatients();
+
+        hs.printAllPatients();
+        hs.sortPatientBySeverity();
+        hs.printAllPatients();
     }
 
 }
