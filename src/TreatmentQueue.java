@@ -22,15 +22,19 @@ public class TreatmentQueue {
 
     }
 
-    Patient deQueue(){     //Removes the first treatment request from the queue
+    public TreatmentRequest deQueue(){     //Removes the first treatment request from the queue
         if(isEmpty()){      //If the is emty,there is nothing to remove
             System.out.println("There is no one to take out of the queue");
+            return null;
         }else{      //Remove the front element(FIFO principle)
+            TreatmentRequest temp=front;
             System.out.println(front.patientId+ " Treatment request was met");
             front=front.next;
-            cnt--;  //Decrease the number of elements
+            cnt--;      //Decrease the number of elements
+
+            return temp;
         }
-        return null;
+
     }
     int realSize(){     //Calculates the actual number of elements by traversing the queue
         int cnt=0;      //Local counter
