@@ -21,6 +21,7 @@ public class PatientList {
     void removePatient(int id) {     //Removes a patient from the list by ID
         if (head == null) {   //List is empty
             System.out.println("List is empty, no patient to delete ");
+            return;
         } else {
             if (id == head.id && head.next == null) {   //Only one node in the list
                 head = null;
@@ -35,6 +36,7 @@ public class PatientList {
                     if (id == temp.id) {   //Remove current node
                         temp2.next = temp.next;
                         System.out.println(id +" The patient with the ID was deleted");
+                        return;
                     }
                     temp2 = temp;
                     temp = temp.next;
@@ -43,18 +45,21 @@ public class PatientList {
                     temp2.next = null;
                     tail = temp2;
                     System.out.println(id + " The patient with the ID was deleted");
+                    return;
                 }
             }
         }
     }
-     public boolean findPatient(int id){  //Searches for patient by ID
-        Patient temp=head;
-        while(temp!=null){
-            if(temp.id==id)
-                return true;
-            temp=temp.next;
-        }
-        return false;
+     public boolean findPatient(int id) {  //Searches for patient by ID
+         Patient temp = head;
+         while (temp != null) {
+             if (temp.id == id) {
+                 System.out.println("Name: " + temp.name + " Severity: " + temp.severity + " Age: " + temp.age);
+                 return true;
+             }
+             temp = temp.next;
+         }System.out.println("No patient");
+         return false;
      }
 
 
