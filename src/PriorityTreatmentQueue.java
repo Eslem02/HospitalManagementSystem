@@ -1,12 +1,12 @@
 public class PriorityTreatmentQueue {
-    TreatmentQueue priorityQueue;
-    TreatmentQueue normalQueue;
+    TreatmentQueue priorityQueue;       //Queue for priority patients
+    TreatmentQueue normalQueue;     //Queue for normal patients
 
-    public PriorityTreatmentQueue(){
+    public PriorityTreatmentQueue(){        //Create both queues
         priorityQueue=new TreatmentQueue();
         normalQueue=new TreatmentQueue();
     }
-    public void addRequest(TreatmentRequest r){
+    public void addRequest(TreatmentRequest r){     //Adds a new request to the correct queue based on its priority value
         if(r.priority==true){
             priorityQueue.enQueue(r);
             System.out.println("Priority added: "+r.patientId);
@@ -14,15 +14,15 @@ public class PriorityTreatmentQueue {
             normalQueue.enQueue(r);
             System.out.println("Normal added: "+r.patientId);
         }
-    }
-    public TreatmentRequest getNext(){
+    }                                       //Priority queue is always checked first
+    public TreatmentRequest getNext(){      //Returns the next patient to be treated
         if(priorityQueue.realSize()>0){
-            return priorityQueue.deQueue();
+            return priorityQueue.deQueue();     //Take from priority queue
         }else{
-            return normalQueue.deQueue();
+            return normalQueue.deQueue();       //If empty,take from normal queue
         }
     }
-    public int totalSize(){
+    public int totalSize(){     //Prints both queues for debugging and visualization
         return priorityQueue.realSize()+normalQueue.realSize();
     }
     public void pritnAll(){
@@ -32,6 +32,4 @@ public class PriorityTreatmentQueue {
         System.out.println("---Normal Queue---");
         normalQueue.printQueue();
     }
-
-
 }
