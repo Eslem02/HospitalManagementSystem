@@ -56,22 +56,22 @@ public class HospitalSystem {
         System.out.println("----Discharge Patient----");
 
         System.out.println("Removing from treatment queue...");     //Remove a patient from the treatment queue
-        TreatmentRequest request =treatmentQueue.deQueue();        //Should return a Patient object
-        if(request!=null){
+        TreatmentRequest request =treatmentQueue.deQueue();        //Take the next treatment request from the queue(Not a patient,it's a TreatmentRequest)
+        if(request!=null) {
 
-            Patient p=patientMap.get(request.patientId);
-            if(p!=null){
-            System.out.println("Adding to discharge stack...");     //Add to discharge stack
-            dischargeStack.push(new DischargeRecord(p.id));//
+            Patient p = patientMap.get(request.patientId);        //Find the real Patient object using the patientId from the request
+            if (p != null) {
+                System.out.println("Adding to discharge stack...");     //Add to discharge stack
+                dischargeStack.push(new DischargeRecord(p.id));//
 
-            System.out.println("Removing from patient list...");        //Remove patient from the linked list
-            patientList.removePatient(p.id);
+                System.out.println("Removing from patient list...");        //Remove patient from the linked list
+                patientList.removePatient(p.id);
 
-            System.out.println("Removing from HashMap...");     //Remove from HashMap as well
-            patientMap.remove(p.id);
-            System.out.println("Patient discharged: ID "+p.id);
-        }else {
-                System.out.println("No patient in queue to discharge! ");
+                System.out.println("Removing from HashMap...");     //Remove from HashMap as well
+                patientMap.remove(p.id);
+                System.out.println("Patient discharged: ID " + p.id);
+            } else {
+                System.out.println("Patient not found in system for ID: "+request.patientId);
             }
         }else{
                 System.out.println("No patient in queue to discharge!");
