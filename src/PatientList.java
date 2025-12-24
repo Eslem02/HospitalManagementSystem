@@ -11,7 +11,7 @@ public class PatientList {
             p1.next=null;
             head=p1;
             tail=p1;
-            System.out.println("Patient registration list created "+","+ p1.id + " Patient id enregistered.");
+            System.out.println("Patient registration list created. "+"\n" +p1.id + " Patient id enregistered.");
         }else{     //Add patient to the end using tail reference
             tail.next=p1;
             tail=p1;
@@ -49,7 +49,7 @@ public class PatientList {
         }
         System.out.println("Patient not found");
     }
-     public boolean findPatient(int id) {  //Searches for patient by ID
+     public boolean findPatient(int id) {  //Searches for patient by ID and prints their info it found
          Patient temp = head;
          while (temp != null) {
              if (temp.id == id) {
@@ -93,7 +93,7 @@ public class PatientList {
                     int severitySwap= temp.severity;
                     int ageSwap=temp.age;
 
-                    temp.id=temp.next.id;       //Swap data instead of swapping nodes
+                    temp.id=temp.next.id;       //Swapping nodes is harder in singly linked lists; data swap is simpler
                     temp.name=temp.next.name;
                     temp.severity=temp.next.severity;
                     temp.age=temp.next.age;

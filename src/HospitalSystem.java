@@ -34,16 +34,16 @@ public class HospitalSystem {
         }
         return found;
     }
-    public void sendToTreatmentQueue(int id) {       //Sends a patient to the treatment queue
+    public void sendToTreatmentQueue(int id) {       //Finds the patient by ID an adds a new TreatmentRequest to the normal treatment queue.
 
         Patient p = findPatientById(id);        //First,locate the patient by ID
 
         if (p != null) {        //Create a TreatmentRequest and add it to the queue
-            treatmentQueue.enQueue(new TreatmentRequest(p.id,"temp",true));
+            treatmentQueue.enQueue(new TreatmentRequest(p.id,"temp",true));     //Creates a temporary TreatmentRequest and enqueues it(severity is set to true)
         }
         System.out.println("----------------------------------------");
     }
-    public int dischargePatient(){     //Discharges the next patient in the treatment queue
+    public int dischargePatient(){     //Discharges the next patient from the PRIORITY treatment queue
 
         if(priorityQueue.isEmpty()) {
             System.out.println("No patient to discharge.");
@@ -58,10 +58,9 @@ public class HospitalSystem {
             return -1;
         }
 
+        dischargeStack.push(new DischargeRecord(id));       //Adds a discharge record to the stack (for history tracking)
 
-        dischargeStack.push(new DischargeRecord(id));
-
-        patientList.removePatient(id);
+        patientList.removePatient(id);      //Removes patient from the linked list and HashMap to keep the system clean
         patientMap.remove(id);
 
         System.out.println("Discharged: "+ id);
@@ -89,7 +88,7 @@ public class HospitalSystem {
         System.out.println("------------------------------");
     }
     public void sortPatientBySeverity(){
-        System.out.println("-----Sorting Patients----");
+        System.out.println("-----Sorting Patients----");        //Sorts patients in the linked list by severity level(higher severity first)
         patientList.sortBySeverity();
         System.out.println("------------------------------");
     }

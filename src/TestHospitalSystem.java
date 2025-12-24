@@ -17,6 +17,7 @@ public class TestHospitalSystem {
 
         System.out.println("\n====Adding 5 Normal & 3 Priority Request===");
 
+
         hs.priorityQueue.addRequest(new TreatmentRequest(1,"Mirhan",false));
         hs.priorityQueue.addRequest(new TreatmentRequest(2,"Alim Efe",false));
         hs.priorityQueue.addRequest(new TreatmentRequest(4,"Adem",false));
