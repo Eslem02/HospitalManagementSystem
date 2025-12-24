@@ -6,13 +6,13 @@ public class DischargeStack {
         cnt=0;      //Stack is empty at the beginning
         top=null;       //No top element
     }
-    void push(DischargeRecord patient){     //Adds a new discharge record to the top of the stack
+    void push(DischargeRecord record){     //Adds a new discharge record to the top of the stack
            if(isEmpty()){       //If the stack is empty,the new element becomes the top
-               top=patient;
+               top=record;
                System.out.println(top.patientId+ " First patient added to stack");
            }else{       //If the stack is not empty,place the new element on top
-               patient.next=top;
-               top=patient;
+               record.next=top;
+               top=record;
                System.out.println(top.patientId+" Patient added");
            }
            cnt++;       //Increase the number of elements

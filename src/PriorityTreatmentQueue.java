@@ -6,13 +6,14 @@ public class PriorityTreatmentQueue {
         priorityQueue=new TreatmentQueue();
         normalQueue=new TreatmentQueue();
     }
-    public void addRequest(TreatmentRequest r){     //Adds a new request to the correct queue based on its priority value
+    public void addRequest(TreatmentRequest r){         //Adds a new request to the correct queue based on its priority value
+        TreatmentRequest copy= new TreatmentRequest(r.patientId,r.name,true);
         if(r.priority){
-            priorityQueue.enQueue(r);
-            System.out.println("Priority added: "+r.patientId);
+            priorityQueue.enQueue(copy);
+            System.out.println("Priority added: "+copy.patientId);
         }else{
-            normalQueue.enQueue(r);
-            System.out.println("Normal added: "+r.patientId);
+            normalQueue.enQueue(copy);
+            System.out.println("Normal added: "+copy.patientId);
         }
     }                                       //Priority queue is always checked first
     public TreatmentRequest getNext(){      //Returns the next patient to be treated

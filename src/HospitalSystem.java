@@ -46,7 +46,7 @@ public class HospitalSystem {
 
         if (p != null) {        //Create a TreatmentRequest and add it to the queue
             System.out.println("Adding patient to treatment queue...");
-            treatmentQueue.enQueue(new TreatmentRequest(p.id, p.name,true));
+            treatmentQueue.enQueue(new TreatmentRequest(p.id,"temp",true));
             System.out.println("Priority Patient " + p.id + " added.");
         }
         System.out.println("----------------------------------------");
@@ -57,12 +57,9 @@ public class HospitalSystem {
         TreatmentRequest request;
 
         if(!priorityQueue.isEmpty()){
-            System.out.println("Processing PRIORİTY patient...");
+            System.out.println("Processing patient...");
             request=priorityQueue.deQueue();
-        }else if(!treatmentQueue.isEmpty()){
-            System.out.println("Processing NORMAL patient...");
-            request=treatmentQueue.deQueue();
-        }else {
+        } else {
             System.out.println("No patient in ANY queue to discharge!");
             System.out.println("-----------------------------------");
             return;
