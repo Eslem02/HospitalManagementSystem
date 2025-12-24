@@ -7,7 +7,7 @@ public class PriorityTreatmentQueue {
         normalQueue=new TreatmentQueue();
     }
     public void addRequest(TreatmentRequest r){     //Adds a new request to the correct queue based on its priority value
-        if(r.priority==true){
+        if(r.priority){
             priorityQueue.enQueue(r);
             System.out.println("Priority added: "+r.patientId);
         }else{
@@ -21,6 +21,15 @@ public class PriorityTreatmentQueue {
         }else{
             return normalQueue.deQueue();       //If empty,take from normal queue
         }
+    }
+    public boolean isEmpty(){
+        return priorityQueue.realSize()==0 && normalQueue.realSize()==0;
+    }
+    public TreatmentRequest deQueue(){
+        return getNext();
+    }
+    public void printQueue(){
+        printAll();
     }
     public int totalSize(){     //Prints both queues for debugging and visualization
         return priorityQueue.realSize()+normalQueue.realSize();

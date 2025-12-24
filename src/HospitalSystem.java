@@ -1,13 +1,15 @@
 import java.util.HashMap;
 public class HospitalSystem {
     public PatientList patientList;        //Linked list that stores all registered patients
-    public TreatmentQueue treatmentQueue;      //Queue that manages treatment order
+    public TreatmentQueue treatmentQueue;       //Queue that manages treatment order
+    public PriorityTreatmentQueue priorityQueue;
     public DischargeStack dischargeStack;      //Stack that stores discharged patients
     public HashMap<Integer, Patient> patientMap;       //HashMap used for fast patient lookup by ID
 
     public HospitalSystem() {       //Constructor:initializes all system components
         patientList = new PatientList();
         treatmentQueue = new TreatmentQueue();
+        priorityQueue=new PriorityTreatmentQueue();
         dischargeStack = new DischargeStack();
         patientMap = new HashMap<>();
 
@@ -44,22 +46,32 @@ public class HospitalSystem {
 
         if (p != null) {        //Create a TreatmentRequest and add it to the queue
             System.out.println("Adding patient to treatment queue...");
-            treatmentQueue.enQueue(new TreatmentRequest(p.id, p.name));
-            System.out.println("Patient " + p.id + " added to queue.");
+            treatmentQueue.enQueue(new TreatmentRequest(p.id, p.name,true));
+            System.out.println("Priority Patient " + p.id + " added.");
         }
         System.out.println("----------------------------------------");
     }
     public void dischargePatient(){     //Discharges the next patient in the treatment queue
         System.out.println("----Discharge Patient----");
 
-        System.out.println("Removing from treatment queue...");     //Remove a patient from the treatment queue
-        TreatmentRequest request =treatmentQueue.deQueue();        //Take the next treatment request from the queue(Not a patient,it's a TreatmentRequest)
-        if(request!=null) {
+        TreatmentRequest request;
+
+        if(!priorityQueue.isEmpty()){
+            System.out.println("Processing PRIORİTY patient...");
+            request=priorityQueue.deQueue();
+        }else if(!treatmentQueue.isEmpty()){
+            System.out.println("Processing NORMAL patient...");
+            request=treatmentQueue.deQueue();
+        }else {
+            System.out.println("No patient in ANY queue to discharge!");
+            System.out.println("-----------------------------------");
+            return;
+        }
 
             Patient p = patientMap.get(request.patientId);        //Find the real Patient object using the patientId from the request
             if (p != null) {
                 System.out.println("Adding to discharge stack...");     //Add to discharge stack
-                dischargeStack.push(new DischargeRecord(p.id));//
+                dischargeStack.push(new DischargeRecord(p.id));     //
 
                 System.out.println("Removing from patient list...");        //Remove patient from the linked list
                 patientList.removePatient(p.id);
@@ -70,10 +82,7 @@ public class HospitalSystem {
             } else {
                 System.out.println("Patient not found in system for ID: "+request.patientId);
             }
-        }else{
-                System.out.println("No patient in queue to discharge!");
-            }
-        System.out.println("---------------------------------------");
+            System.out.println("---------------------------------------");
     }
 
     public void printAllPatients(){     //Displays all patients currently registered in the system
@@ -85,6 +94,11 @@ public class HospitalSystem {
         System.out.println("----Treatment Queue----");
         treatmentQueue.printQueue();
         System.out.println("-------------------------------------");
+    }
+    public void printPriorityQueue(){
+        System.out.println("----Priority Queue----");
+        priorityQueue.printQueue();
+        System.out.println("----------------------------");
     }
     public void printDischargePatients(){       //Displays all discharged patients stored in the stack
         System.out.println("----Discharged Patients----");
