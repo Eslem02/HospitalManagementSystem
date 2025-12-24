@@ -25,7 +25,7 @@ public class PriorityTreatmentQueue {
     public int totalSize(){     //Prints both queues for debugging and visualization
         return priorityQueue.realSize()+normalQueue.realSize();
     }
-    public void pritnAll(){
+    public void printAll(){
         System.out.println("---Priority Queue---");
         priorityQueue.printQueue();
 
