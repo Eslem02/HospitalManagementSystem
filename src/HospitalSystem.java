@@ -54,32 +54,35 @@ public class HospitalSystem {
     public void dischargePatient(){     //Discharges the next patient in the treatment queue
         System.out.println("----Discharge Patient----");
 
-        TreatmentRequest request;
 
-        if(!priorityQueue.isEmpty()){
-            System.out.println("Processing patient...");
-            request=priorityQueue.deQueue();
-        } else {
+        if(priorityQueue.isEmpty()) {
             System.out.println("No patient in ANY queue to discharge!");
-            System.out.println("-----------------------------------");
+            System.out.println("-------------------------------------");
+            return;
+        }
+        System.out.println("Processing patient...");
+        TreatmentRequest request=priorityQueue.deQueue();
+
+        Patient p=patientMap.get(request.patientId);
+
+        if(p==null) {
+            System.out.println("Patient not found in system for ID: " + request.patientId);
+            System.out.println("-------------------------------------");
             return;
         }
 
-            Patient p = patientMap.get(request.patientId);        //Find the real Patient object using the patientId from the request
-            if (p != null) {
-                System.out.println("Adding to discharge stack...");     //Add to discharge stack
-                dischargeStack.push(new DischargeRecord(p.id));     //
+        int id=request.patientId;
+        System.out.println("Adding to discharge stack...");
+        dischargeStack.push(new DischargeRecord(id));
 
-                System.out.println("Removing from patient list...");        //Remove patient from the linked list
-                patientList.removePatient(p.id);
+        System.out.println("Removing from patient list...");
+        patientList.removePatient(id);
 
-                System.out.println("Removing from HashMap...");     //Remove from HashMap as well
-                patientMap.remove(p.id);
-                System.out.println("Patient discharged: ID " + p.id);
-            } else {
-                System.out.println("Patient not found in system for ID: "+request.patientId);
-            }
-            System.out.println("---------------------------------------");
+        System.out.println("Removing from HashMap...");
+        patientMap.remove(id);
+
+        System.out.println("Patient discharged Id: "+id);
+        System.out.println("-----------------------------");
     }
 
     public void printAllPatients(){     //Displays all patients currently registered in the system
