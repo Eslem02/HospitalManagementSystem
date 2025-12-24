@@ -30,6 +30,6 @@ public class PriorityTreatmentQueue {
         priorityQueue.printQueue();
 
         System.out.println("---Normal Queue---");
-        normalQueue.printQueue();  //
+        normalQueue.printQueue();
     }
 }
