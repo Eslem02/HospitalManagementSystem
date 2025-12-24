@@ -35,9 +35,7 @@ public class HospitalSystem {
         return found;
     }
     public void sendToTreatmentQueue(int id) {       //Finds the patient by ID an adds a new TreatmentRequest to the normal treatment queue.
-
         Patient p = findPatientById(id);        //First,locate the patient by ID
-
         if (p != null) {        //Create a TreatmentRequest and add it to the queue
             treatmentQueue.enQueue(new TreatmentRequest(p.id,"temp",true));     //Creates a temporary TreatmentRequest and enqueues it(severity is set to true)
         }

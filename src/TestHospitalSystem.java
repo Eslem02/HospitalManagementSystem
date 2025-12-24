@@ -32,6 +32,7 @@ public class TestHospitalSystem {
 
 
 
+
         System.out.println("\n===Processing 4 Treatment Request(Priority first)===");
         hs.dischargePatient();
         hs.dischargePatient();
