@@ -38,7 +38,6 @@ public class HospitalSystem {
         }
         return found;
     }
-
     public void sendToTreatmentQueue(int id) {       //Sends a patient to the treatment queue
         System.out.println("----Sending Patient to Treatment Queue----");
 
