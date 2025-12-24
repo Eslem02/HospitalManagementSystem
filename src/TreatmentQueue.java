@@ -45,6 +45,7 @@ public class TreatmentQueue {
     void printQueue(){      //Prints all elements in the queue from front to rear
         if(isEmpty()){
             System.out.println("There are no patients waiting.");
+            return;
         }else{
             TreatmentRequest temp=front;
             System.out.print("front->");

@@ -5,47 +5,41 @@ public class PriorityTreatmentQueue {
     public PriorityTreatmentQueue(){        //Initializes two separate queues: priority and normal
         priorityQueue=new TreatmentQueue();
         normalQueue=new TreatmentQueue();
+
     }
-    public void addRequest(TreatmentRequest r){         //Adds a new request to the correct queue based on its priority value
-        TreatmentRequest copy= new TreatmentRequest(r.patientId,r.name,r.priority); //Creates a copy of the request and adds it to either priorityQueue or normalQueue based on priority
-        if(r.priority){
-            priorityQueue.enQueue(copy);
+    public void enqueue(TreatmentRequest request){
+        if(request.priority){
+            System.out.println("Priority patient added: "+request.patientId);
+            priorityQueue.enQueue(request);
         }else{
-            normalQueue.enQueue(copy);
+            normalQueue.enQueue(request);
+            System.out.println("Normal patient added: "+request.patientId);
         }
     }
-    public TreatmentRequest getNext(){      //Returns the next patient ;priority queue is always checked first
-        if(priorityQueue.realSize()>0){
-            return priorityQueue.deQueue();     //Take from priority queue
-        }else{
-            return normalQueue.deQueue();       //If empty,take from normal queue
-        }
+    public TreatmentRequest dequeue(){         //Adds a new request to the correct queue based on its priority value
+       if(!priorityQueue.isEmpty()){
+           return priorityQueue.deQueue();
+       }
+       if(!normalQueue.isEmpty()){
+           return normalQueue.deQueue();
+       }
+       System.out.println("All queues empty.");
+       return null;
     }
-    public boolean isEmpty(){
-        return priorityQueue.realSize()==0 && normalQueue.realSize()==0;
+    public void printQueues() {
+        System.out.println("\n----Priority Queue----");
+        priorityQueue.printQueue();
+
+        System.out.println("\n----Normal Queue----");
+        normalQueue.printQueue();
     }
-    public TreatmentRequest deQueue(){
-        return getNext();
-    }
-    public void printQueue(){
-        printAll();
-    }
-    public int totalSize(){     //Returns the total number of patients in both queues
+    public int size(){
         return priorityQueue.realSize()+normalQueue.realSize();
     }
-    public void printAll(){
-        System.out.println("---Priority Queue---");
-        if(priorityQueue.realSize()==0){
-            System.out.println("There are no prioritypatients.");
-        }else {
-            priorityQueue.printQueue();
-        }
-
-        System.out.println("---Normal Queue---");
-        if(normalQueue.realSize()==0){
-            System.out.println("There are no normal patients");
-        }else {
-            normalQueue.printQueue();
-        }
+    public boolean isEmpty(){
+        return priorityQueue.isEmpty()&& normalQueue.isEmpty();
     }
-}
+
+
+    }
+

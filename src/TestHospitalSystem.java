@@ -17,39 +17,31 @@ public class TestHospitalSystem {
 
         System.out.println("\n====Adding 5 Normal & 3 Priority Request===");
 
-        hs.priorityQueue.addRequest(new TreatmentRequest(1,"Mirhan",false));
-        hs.priorityQueue.addRequest(new TreatmentRequest(2,"Alim Efe",false));
-        hs.priorityQueue.addRequest(new TreatmentRequest(4,"Adem",false));
-        hs.priorityQueue.addRequest(new TreatmentRequest(6,"Yiğit Ali",false));
-        hs.priorityQueue.addRequest(new TreatmentRequest(10,"Yavuz",false));
+        hs.addTreatmentRequest(1,"Mirhan",false);
+        hs.addTreatmentRequest(2,"Alim efe",false);
+        hs.addTreatmentRequest(4,"Adem",false);
+        hs.addTreatmentRequest(6,"Yiğit Ali",false);
+        hs.addTreatmentRequest(8,"Umut",false);
+        hs.addTreatmentRequest(3,"Kerem",true);
+        hs.addTreatmentRequest(5,"Hamza Selim",true);
+        hs.addTreatmentRequest(9,"Hatice",true);
 
-        hs.priorityQueue.addRequest(new TreatmentRequest(3,"Kerem",true));
-        hs.priorityQueue.addRequest(new TreatmentRequest(5,"Hamza Selim",true));
-        hs.priorityQueue.addRequest(new TreatmentRequest(9,"Hatice",true));
-
-        hs.priorityQueue.printQueue();
-
-
-
-
+        hs.addDischargeRecord(100);
+        hs.addDischargeRecord(200);
 
         System.out.println("\n===Processing 4 Treatment Request(Priority first)===");
-        hs.dischargePatient();
-        hs.dischargePatient();
-        hs.dischargePatient();
-        hs.dischargePatient();
+        hs.processTreatmentRequest();
+        hs.processTreatmentRequest();
+        hs.processTreatmentRequest();
+        hs.processTreatmentRequest();
+
+        hs.sortPatientBySeverity();
+
 
         System.out.println("\n===Final System State===");
-
-        System.out.println("\n---Remaining Patients in System---");
         hs.printAllPatients();
-
-        System.out.println("\n---Remaining Treatment Queues---");
         hs.printPriorityQueue();
-
-        System.out.println("\n ===Sorting Patients by Severity(High->Low)===");
-        hs.patientList.sortBySeverity();
-        hs.printAllPatients();
+        hs.printDischargePatients();
 
 
     }
