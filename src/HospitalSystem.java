@@ -17,18 +17,14 @@ public class HospitalSystem {
     }
 
     public void addNewPatient(Patient p) {      //Adds a new patient to the system
-        System.out.println("----Adding New Patient----");
-        System.out.println("Adding to patient list...");        //Add patient to the linked list
-        patientList.addPatient(p);
 
-        System.out.println("Adding to HashMap for fast access...");     //Add patient to HahMap for quick searching
+        patientList.addPatient(p);
         patientMap.put(p.id, p);
-        System.out.println("Patient added successfully. ID: " + p.id + ", Name: " + p.name);
+        System.out.println("Patient added: " + p.id + ", Name: " + p.name);
         System.out.println("----------------------------------------------");
     }
 
     public Patient findPatientById(int id) {        //Search for a patient using their unique ID
-        System.out.println("Searching for patient with ID: " + id);
 
         Patient found = patientMap.get(id);     //HashMap provides O(1) average-time lookup
         if (found != null) {
@@ -39,49 +35,37 @@ public class HospitalSystem {
         return found;
     }
     public void sendToTreatmentQueue(int id) {       //Sends a patient to the treatment queue
-        System.out.println("----Sending Patient to Treatment Queue----");
 
         Patient p = findPatientById(id);        //First,locate the patient by ID
 
         if (p != null) {        //Create a TreatmentRequest and add it to the queue
-            System.out.println("Adding patient to treatment queue...");
             treatmentQueue.enQueue(new TreatmentRequest(p.id,"temp",true));
-            System.out.println("Priority Patient " + p.id + " added.");
         }
         System.out.println("----------------------------------------");
     }
-    public void dischargePatient(){     //Discharges the next patient in the treatment queue
-        System.out.println("----Discharge Patient----");
-
+    public int dischargePatient(){     //Discharges the next patient in the treatment queue
 
         if(priorityQueue.isEmpty()) {
-            System.out.println("No patient in ANY queue to discharge!");
-            System.out.println("-------------------------------------");
-            return;
+            System.out.println("No patient to discharge.");
+            return -1;
         }
-        System.out.println("Processing patient...");
         TreatmentRequest request=priorityQueue.deQueue();
+        int id=request.patientId;
 
-        Patient p=patientMap.get(request.patientId);
-
+        Patient p=patientMap.get(id);
         if(p==null) {
-            System.out.println("Patient not found in system for ID: " + request.patientId);
-            System.out.println("-------------------------------------");
-            return;
+            System.out.println("Patient not found in system : " + request.patientId);;
+            return -1;
         }
 
-        int id=request.patientId;
-        System.out.println("Adding to discharge stack...");
+
         dischargeStack.push(new DischargeRecord(id));
 
-        System.out.println("Removing from patient list...");
         patientList.removePatient(id);
-
-        System.out.println("Removing from HashMap...");
         patientMap.remove(id);
 
-        System.out.println("Patient discharged Id: "+id);
-        System.out.println("-----------------------------");
+        System.out.println("Discharged: "+ id);
+        return id;
     }
 
     public void printAllPatients(){     //Displays all patients currently registered in the system

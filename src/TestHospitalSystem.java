@@ -4,20 +4,16 @@ public class TestHospitalSystem {
 
         System.out.println("\n====Adding 10 Patients====");
 
-        hs.addNewPatient(new Patient(1,"Mirhan",6,7));
+        hs.addNewPatient(new Patient(1,"Mirhan",1,7));
         hs.addNewPatient(new Patient(2,"Alim Efe",2,4));
-        hs.addNewPatient(new Patient(3,"Kerem",5,9));
-        hs.addNewPatient(new Patient(4,"Adem",7,3));
-        hs.addNewPatient(new Patient(5,"Hamza Selim",1,15));
-        hs.addNewPatient(new Patient(6,"Yiğit Ali",3,20));
-        hs.addNewPatient(new Patient(7,"Furkan",2,18));
-        hs.addNewPatient(new Patient(8,"Umut",4,24));
-        hs.addNewPatient(new Patient(9,"Hatice",6,42));
-        hs.addNewPatient(new Patient(10,"Yavuz",7,35));
-
-        System.out.println("\n===Sorting Patients By Severity Before Queueing===");
-        hs.sortPatientBySeverity();
-
+        hs.addNewPatient(new Patient(3,"Kerem",3,9));
+        hs.addNewPatient(new Patient(4,"Adem",4,3));
+        hs.addNewPatient(new Patient(5,"Hamza Selim",5,15));
+        hs.addNewPatient(new Patient(6,"Yiğit Ali",6,20));
+        hs.addNewPatient(new Patient(7,"Furkan",7,18));
+        hs.addNewPatient(new Patient(8,"Umut",8,24));
+        hs.addNewPatient(new Patient(9,"Hatice",9,42));
+        hs.addNewPatient(new Patient(10,"Yavuz",10,35));
 
         System.out.println("\n====Adding 5 Normal & 3 Priority Request===");
 
@@ -31,8 +27,8 @@ public class TestHospitalSystem {
         hs.priorityQueue.addRequest(new TreatmentRequest(5,"Hamza Selim",true));
         hs.priorityQueue.addRequest(new TreatmentRequest(9,"Hatice",true));
 
-        System.out.println("\n===Print Queues Before Processing===");
-        hs.priorityQueue.printQueue();
+
+
 
         System.out.println("\n===Processing 4 Treatment Request(Priority first)===");
         hs.dischargePatient();
@@ -40,16 +36,18 @@ public class TestHospitalSystem {
         hs.dischargePatient();
         hs.dischargePatient();
 
-        System.out.println("\n===Print Discharged Stack===");
-        hs.printDischargePatients();
+        System.out.println("\n===Final System State===");
 
-
-        System.out.println("\n=====Print Remaining Patient List====");
+        System.out.println("\n---Remaining Patients in System---");
         hs.printAllPatients();
 
-        System.out.println("\n===Print Remaining Request Queues===");
-        hs.priorityQueue.printQueue();
+        System.out.println("\n---Remaining Treatment Queues---");
+        hs.printPriorityQueue();
+
+        System.out.println("\n ===Sorting Patients by Severity(High->Low)===");
+        hs.patientList.sortBySeverity();
+        hs.printAllPatients();
+
 
     }
-
 }

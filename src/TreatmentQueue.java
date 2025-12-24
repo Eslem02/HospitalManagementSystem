@@ -12,11 +12,9 @@ public class TreatmentQueue {
     void enQueue(TreatmentRequest request ){
         if(isEmpty()){      //If the queue is empty,the new element becomes both front and rear
             front=rear=request;
-            System.out.println("The queue was created and the first patient arrived. ");
         }else{     //If the queue is nıt empty,add the new element to the end
             rear.next=request;
             rear=request;
-            System.out.println(rear.patientId+" got in line.");
         }
         cnt++;   //Increase the number of elements
 
@@ -24,14 +22,11 @@ public class TreatmentQueue {
 
     public TreatmentRequest deQueue(){     //Removes the first treatment request from the queue
         if(isEmpty()){      //If the is emty,there is nothing to remove
-            System.out.println("There is no one to take out of the queue");
             return null;
         }else{      //Remove the front element(FIFO principle)
             TreatmentRequest temp=front;
-            System.out.println(front.patientId+ " Treatment request was met");
             front=front.next;
             cnt--;      //Decrease the number of elements
-
             return temp;
         }
 

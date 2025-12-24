@@ -7,10 +7,15 @@ public class TreatmentRequest {
 
 
 
-    public TreatmentRequest(int patientId,String name,boolean priority){
+    public TreatmentRequest(int patientId,long arrivalTime){
+        this.patientId=patientId;
+        this.arrivalTime=System.currentTimeMillis();
+
+
+    }
+    public  TreatmentRequest(int patientId,String name,boolean priority){
         this.patientId=patientId;
         this.name=name;
-        this.arrivalTime=System.currentTimeMillis();
         this.priority=priority;
         this.next=null;
 

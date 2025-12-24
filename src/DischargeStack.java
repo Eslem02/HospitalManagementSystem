@@ -9,19 +9,16 @@ public class DischargeStack {
     void push(DischargeRecord record){     //Adds a new discharge record to the top of the stack
            if(isEmpty()){       //If the stack is empty,the new element becomes the top
                top=record;
-               System.out.println(top.patientId+ " First patient added to stack");
            }else{       //If the stack is not empty,place the new element on top
                record.next=top;
                top=record;
-               System.out.println(top.patientId+" Patient added");
            }
            cnt++;       //Increase the number of elements
     }
     void pop(){     //Removes the top element from the stack
-        if(isEmpty()){      //If the stack is empty,there is nothing to remove
+        if(isEmpty()){
             System.out.println("Stack is empty.");
         }else{      //Remove the top element(LIFO principle)
-            System.out.println(top.patientId+" removed");
             top=top.next;
             cnt--;      //Decrease the number of elements
         }
@@ -39,7 +36,7 @@ public class DischargeStack {
             System.out.println("There are no patients to show");
         }else{
             DischargeRecord temp=top;
-            System.out.println("Patients on the stack \n");
+            System.out.println("----Discharged Patients----");
 
             while(temp!=null){      //Traverse the stack and print each patient ID
                 System.out.println(temp.patientId);

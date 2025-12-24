@@ -29,11 +29,15 @@ public class PatientList {
             } else if (id == head.id && head.next != null) {   // More than one node,move head forward
                 head = head.next;
                 System.out.println(id + " The patient with the ID was deleted");
+                return;
             } else {    //Deleting from middle or tail
                 temp2 = head;   //previous node
                 temp = head.next;  //current node
-                while (temp.next != null) {
-                    if (id == temp.id) {   //Remove current node
+                while (temp != null) {
+                    if (id == temp.id) {        //Remove current node
+                        if(temp==tail){
+                            tail=temp2;
+                        }
                         temp2.next = temp.next;
                         System.out.println(id +" The patient with the ID was deleted");
                         return;
@@ -41,14 +45,9 @@ public class PatientList {
                     temp2 = temp;
                     temp = temp.next;
                 }
-                if (id == temp.id) {
-                    temp2.next = null;
-                    tail = temp2;
-                    System.out.println(id + " The patient with the ID was deleted");
-                    return;
-                }
             }
         }
+        System.out.println("Patient not found");
     }
      public boolean findPatient(int id) {  //Searches for patient by ID
          Patient temp = head;
