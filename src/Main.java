@@ -16,9 +16,9 @@ public class Main {
         System.out.println(list.findPatient(5));
         list.printList();
 
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");*/
 
-        queue.enQueue(new TreatmentRequest(101,System.currentTimeMillis()));
+        /*queue.enQueue(new TreatmentRequest(101,System.currentTimeMillis()));
         queue.enQueue(new TreatmentRequest(102,System.currentTimeMillis()));
         queue.enQueue(new TreatmentRequest(103,System.currentTimeMillis()));
         queue.enQueue(new TreatmentRequest(104,System.currentTimeMillis()));

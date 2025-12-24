@@ -6,7 +6,6 @@ public class PatientList {
     Patient temp2;      //Used as previous node
 
     void addPatient(Patient p1){    //Adds a new patient to the end of the list
-
         if(head==null){   //If list is empty,new patient becomes head and tail
             p1.next=null;
             head=p1;
@@ -61,7 +60,6 @@ public class PatientList {
          return false;
      }
 
-
     void printList(){    //Prints all patients in the list
         if(head==null){
             System.out.println("List is empty");
@@ -110,6 +108,5 @@ public class PatientList {
         }while(swapped);
         System.out.println("Patients sorted by severity (highest to lowest).");
     }
-
 
 }

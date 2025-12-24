@@ -7,36 +7,36 @@ public class PriorityTreatmentQueue {
         normalQueue=new TreatmentQueue();
 
     }
-    public void enqueue(TreatmentRequest request){
+    public void enqueue(TreatmentRequest request){      //Adds a new treatment request to the correct queue
         if(request.priority){
             System.out.println("Priority patient added: "+request.patientId);
-            priorityQueue.enQueue(request);
+            priorityQueue.enQueue(request);     //Priority patients maintain FIFO inside their group
         }else{
-            normalQueue.enQueue(request);
+            normalQueue.enQueue(request);       //Normal patients also maintain FIFO
             System.out.println("Normal patient added: "+request.patientId);
         }
     }
-    public TreatmentRequest dequeue(){         //Adds a new request to the correct queue based on its priority value
-       if(!priorityQueue.isEmpty()){
+    public TreatmentRequest dequeue(){      //Removes the next patient for treatment
+       if(!priorityQueue.isEmpty()){        //Priority patients always come first
            return priorityQueue.deQueue();
        }
        if(!normalQueue.isEmpty()){
-           return normalQueue.deQueue();
+           return normalQueue.deQueue();        //If no priority patients,treat normal patients
        }
-       System.out.println("All queues empty.");
+       System.out.println("All queues empty.");     //No patients left in the system
        return null;
     }
-    public void printQueues() {
+    public void printQueues() {     //Prints both the priority and normal queues
         System.out.println("\n----Priority Queue----");
         priorityQueue.printQueue();
 
         System.out.println("\n----Normal Queue----");
         normalQueue.printQueue();
     }
-    public int size(){
+    public int size(){      //Returns the total number of waiting patients
         return priorityQueue.realSize()+normalQueue.realSize();
     }
-    public boolean isEmpty(){
+    public boolean isEmpty(){       //Checks whether both queues are empty
         return priorityQueue.isEmpty()&& normalQueue.isEmpty();
     }
 
