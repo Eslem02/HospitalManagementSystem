@@ -18,37 +18,54 @@ public class Main {
 
         System.out.println("----------------------------------------------------------------------");*/
 
-        /*queue.enQueue(new TreatmentRequest(101,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(102,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(103,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(104,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(105,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(106,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(107,System.currentTimeMillis()));
-        queue.enQueue(new TreatmentRequest(108,System.currentTimeMillis()));
+       /*TreatmentRequest r1=new TreatmentRequest(101,System.currentTimeMillis());
+        TreatmentRequest r2=(new TreatmentRequest(102,System.currentTimeMillis()));
+        TreatmentRequest r3=(new TreatmentRequest(103,System.currentTimeMillis()));
+        TreatmentRequest r4=(new TreatmentRequest(104,System.currentTimeMillis()));
+        TreatmentRequest r5=(new TreatmentRequest(105,System.currentTimeMillis()));
+        TreatmentRequest r6=(new TreatmentRequest(106,System.currentTimeMillis()));
+        TreatmentRequest r7=(new TreatmentRequest(107,System.currentTimeMillis()));
+        TreatmentRequest r8=(new TreatmentRequest(108,System.currentTimeMillis()));
+        System.out.println("---8 treatment request are added---");
+        queue.enQueue(r1);
+        queue.enQueue(r2);
+        queue.enQueue(r3);
+        queue.enQueue(r4);
+        queue.enQueue(r5);
+        queue.enQueue(r6);
+        queue.enQueue(r7);
+        queue.enQueue(r8);
+        queue.printQueue();
+        System.out.println("\n---Dequeue 3 request---");
+        System.out.println(queue.deQueue());
+        System.out.println(queue.deQueue());
+        System.out.println(queue.deQueue());
 
-        queue.deQueue();
-        queue.deQueue();
-        queue.deQueue();
-
+        System.out.println("\n---Remaining queue---");
         queue.printQueue();
 
         System.out.println("Queue size: "+queue.realSize());
 
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------");*/
 
 
 
-        stack.push(new DischargeRecord(101));
+        /*stack.push(new DischargeRecord(101));
         stack.push(new DischargeRecord(102));
         stack.push(new DischargeRecord(103));
         stack.push(new DischargeRecord(104));
         stack.push(new DischargeRecord(105));
+        stack.printStack();
 
+
+        System.out.println("\n---Popping 2 records---");
         stack.pop();
         stack.pop();
 
+        System.out.println("\n---2 record removed. Last Stack: ");
         stack.printStack();*/
+
+
 
 
 }

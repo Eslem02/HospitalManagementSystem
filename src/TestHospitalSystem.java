@@ -35,6 +35,8 @@ public class TestHospitalSystem {
         hs.processTreatmentRequest();
         hs.processTreatmentRequest();
 
+
+        System.out.println("\n Patients sorted by severity: ");
         hs.sortPatientBySeverity();
 
 
