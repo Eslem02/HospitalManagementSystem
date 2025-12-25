@@ -18,7 +18,9 @@ public class TreatmentRequest {
         this.name=name;
         this.priority=priority;
         this.next=null;
-
+    }
+    public String toString(){
+        return "Request ID: " +patientId;
     }
 
 
